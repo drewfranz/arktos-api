@@ -1,9 +1,8 @@
-import express from 'express';
-import morgan from 'morgan';
-import helmet from 'helmet';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-
+const express = require('express');
+const morgan = require('morgan');
+const helmet = require('helmet');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 require('dotenv').config();
 
