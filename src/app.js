@@ -18,11 +18,11 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-const monk = require('monk')
-// Connection URL
-const url = 'localhost:27017/arktos-api';
-const db = require('monk')(url);
-const collection = db.get('document');
+// const monk = require('monk')
+// // Connection URL
+// const url = 'localhost:27017/arktos-api';
+// const db = require('monk')(url);
+// const collection = db.get('document');
 
 app.get('/', (req, res) => {
   res.json({
