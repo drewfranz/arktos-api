@@ -26,7 +26,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json({
-    message: '🦄🌈✨👋🌎🌍🌏✨🌈🦄'
+    message: 'Hello from the Arktos API'
   });
 });
 
