@@ -26,18 +26,10 @@ export const TaskSchema = new Schema({
         default: 1
     },
     estimatedHours: {
-        type: Number,
-        min: 0,
-        default: 0
+        type: mongoose.Schema.Types.Decimal128
     },
     hoursSpent: {
-        type: Number,
-        min: 0,
-        default: 0
-    }, 
-    createdOn: {
-        type: Date,
-        default: Date.now
+        type: mongoose.Schema.Types.Decimal128
     },
     isPriority: {
         type: Boolean,
@@ -53,8 +45,8 @@ export const TaskSchema = new Schema({
 
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Project',
+        type: String,
+        default: ''
 
     },
     status: {
@@ -63,10 +55,11 @@ export const TaskSchema = new Schema({
         required: true,
         default: "open"
     }
+}, {
+    timestamps: true
 });
 
 TaskSchema.path('issueUrl').validate((val) => {
-    console.log(val);
     const urlRegex = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
     return urlRegex.test(val);
 }, 'Invalid URL.');
