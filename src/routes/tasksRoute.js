@@ -1,7 +1,7 @@
 import { checkJwt } from '../middlewares';
 import { getAllTasks, getTaskById, addNewTask, updateTask } from '../controllers/tasksController';
 
-const routes = app => {
+function routes (app) {
     // GET /tasks : Get all tasks
     app.route('/v1/tasks')
         .get(checkJwt, getAllTasks);
@@ -14,6 +14,6 @@ const routes = app => {
     // PUT /tasks/{:id} : Update one task by _id.
     app.route('/v1/tasks/:id')
         .put(checkJwt, updateTask);
-}
+};
 
 export default routes;
