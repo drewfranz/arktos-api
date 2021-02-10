@@ -1,5 +1,5 @@
 import { checkJwt } from '../middlewares';
-import { getAllTasks, getTaskById, addNewTask, updateTask } from '../controllers/tasksController';
+import { getAllTasks, getTaskById, addNewTask, updateTask, deleteTask } from '../controllers/tasksController';
 
 function routes (app) {
     // GET /tasks : Get all tasks
@@ -14,6 +14,9 @@ function routes (app) {
     // PUT /tasks/{:id} : Update one task by _id.
     app.route('/v1/tasks/:id')
         .put(checkJwt, updateTask);
-};
+    // DELETE /tasks/{:id} : Delete one task by _id.
+    app.route('/v1/tasks/:id')
+        .delete(checkJwt, deleteTask);
+}
 
 export default routes;
