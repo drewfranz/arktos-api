@@ -43,7 +43,7 @@ export const addNewTask = (req, res, next) => {
     });
 };
 
-// update article
+// PUT: [/task/{id}] : Update task.
 export const updateTask = (req, res, next) => {
     Task.findByIdAndUpdate(
         req.params.id,
@@ -53,8 +53,22 @@ export const updateTask = (req, res, next) => {
             if (error) {
                 next(error);
             } else {
-                console.log(task)
                 res.status(204).send();
             }
-        });
-  };
+        }
+    );
+};
+
+// DELETE: [/task/{id}] : Delete task
+export const deleteTask = (req, res, next) => {
+    Task.findByIdAndDelete(
+        req.params.id,
+        (error, task) => {
+            if (error) {
+                next(error);
+            } else {
+                res.status(204).send()
+            }
+        }
+    );
+}
